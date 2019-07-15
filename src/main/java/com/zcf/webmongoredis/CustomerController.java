@@ -1,6 +1,6 @@
 package com.zcf.webmongoredis;
 
-import com.zcf.webmongoredis.mongodb.Customer;
+import com.zcf.webmongoredis.model.Customer;
 import com.zcf.webmongoredis.mongodb.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/customers")
 public class CustomerController {
     @Autowired
     private CustomerRepository customerRepository;
@@ -17,7 +18,7 @@ public class CustomerController {
 //        return customerRepository.findAll();
 //    }
 
-    @GetMapping("/customers")
+    @GetMapping
     public List<Customer> customers(@RequestParam(required = false, name = "lastName") String lastName) {
         if (lastName != null) {
             return customerRepository.findByLastName(lastName);
@@ -26,12 +27,12 @@ public class CustomerController {
         }
     }
 
-    @PostMapping(value = "/customers")
+    @PostMapping
     public Customer add(@RequestBody Customer customer) {
         return customerRepository.save(customer);
     }
 
-    @DeleteMapping(value = "/customers")
+    @DeleteMapping
     public void delete(@RequestBody Customer customer) {
         customerRepository.delete(customer);
     }

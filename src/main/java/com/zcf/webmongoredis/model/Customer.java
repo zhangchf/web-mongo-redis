@@ -1,8 +1,10 @@
-package com.zcf.webmongoredis.mongodb;
+package com.zcf.webmongoredis.model;
 
 import org.springframework.data.annotation.Id;
 
-public class Customer {
+import java.io.Serializable;
+
+public class Customer implements Serializable {
     @Id
     public String id;
 

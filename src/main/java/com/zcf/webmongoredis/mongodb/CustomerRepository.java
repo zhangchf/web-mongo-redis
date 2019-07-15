@@ -1,5 +1,6 @@
 package com.zcf.webmongoredis.mongodb;
 
+import com.zcf.webmongoredis.model.Customer;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;

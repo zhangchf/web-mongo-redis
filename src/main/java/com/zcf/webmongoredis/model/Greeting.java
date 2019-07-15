@@ -1,4 +1,4 @@
-package com.zcf.webmongoredis.greeting;
+package com.zcf.webmongoredis.model;
 
 public class Greeting {
     private final long id;
